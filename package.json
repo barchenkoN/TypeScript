@@ -1,0 +1,16 @@
+{
+  "name": "ts-unik",
+  "version": "1.0.0",
+  "description": "Базовий TypeScript проєкт",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["typescript", "demo"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
