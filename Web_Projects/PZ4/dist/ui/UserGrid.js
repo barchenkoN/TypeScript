@@ -1,4 +1,4 @@
-import { openModal } from "./Modal";
+import { openModal } from "./Modal.js";
 const userGrid = document.getElementById('userGrid');
 export function renderUsers(userList) {
     if (!userGrid)

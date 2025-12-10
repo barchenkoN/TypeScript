@@ -1,4 +1,4 @@
-import { User } from "../types/UserTypes";
+import { User } from "../types/UserTypes.js";
 
 // Elements
 const modalOverlay = document.getElementById('userModal') as HTMLElement;

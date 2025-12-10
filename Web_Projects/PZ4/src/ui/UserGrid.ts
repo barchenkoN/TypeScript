@@ -1,5 +1,5 @@
-import { User } from "../types/UserTypes";
-import { openModal } from "./Modal";
+import { User } from "../types/UserTypes.js";
+import { openModal } from "./Modal.js";
 
 const userGrid = document.getElementById('userGrid') as HTMLElement;
 

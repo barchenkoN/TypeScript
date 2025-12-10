@@ -1,7 +1,7 @@
-import { fetchUsersData } from "./services/UserService";
-import { renderUsers } from "./ui/UserGrid";
-import { initModalListeners } from "./ui/Modal";
-import { initScrollButton } from "./ui/ScrollButton";
+import { fetchUsersData } from "./services/UserService.js";
+import { renderUsers } from "./ui/UserGrid.js";
+import { initModalListeners } from "./ui/Modal.js";
+import { initScrollButton } from "./ui/ScrollButton.js";
 
 const loadUsersBtn = document.getElementById('loadUsersBtn') as HTMLButtonElement;
 
