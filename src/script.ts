@@ -1,4 +1,4 @@
-// Interfaces for Type Safety
+// Інтерфейси для типів даних користувача
 interface Geo {
     lat: string;
     lng: string;
@@ -29,14 +29,14 @@ interface User {
     company: Company;
 }
 
-// DOM Elements
+// Отримання елементів з DOM
 const loadUsersBtn = document.getElementById('loadUsersBtn') as HTMLButtonElement;
 const userGrid = document.getElementById('userGrid') as HTMLElement;
 const modalOverlay = document.getElementById('userModal') as HTMLElement;
 const closeModalBtn = document.getElementById('closeModalBtn') as HTMLButtonElement;
 const scrollTopBtn = document.getElementById('scrollTopBtn') as HTMLButtonElement;
 
-// Modal Elements
+// Елементи модального вікна
 const modalName = document.getElementById('modalName') as HTMLElement;
 const modalUsername = document.getElementById('modalUsername') as HTMLElement;
 const modalAvatar = document.getElementById('modalAvatar') as HTMLElement;
@@ -47,25 +47,21 @@ const modalAddress = document.getElementById('modalAddress') as HTMLElement;
 const modalCompany = document.getElementById('modalCompany') as HTMLElement;
 const modalCatchPhrase = document.getElementById('modalCatchPhrase') as HTMLElement;
 
-// State
+// Масив користувачів
 let users: User[] = [];
 
-// Functions
-
-/**
- * Fetches users from the JSONPlaceholder API
- */
+// Фукнція для отримання даних з серверу
 async function fetchUsers(): Promise<void> {
     try {
         loadUsersBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Завантаження...';
         loadUsersBtn.disabled = true;
 
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) throw new Error('Failed to fetch data');
+        if (!response.ok) throw new Error('Помилка завантаження');
 
         users = await response.json();
 
-        // Simulate delay for "Loading" feel (premium UX)
+        // Невелика затримка для краси
         setTimeout(() => {
             renderUsers(users);
             loadUsersBtn.innerHTML = '<i class="fa-solid fa-check"></i> Оновлено';
@@ -82,24 +78,21 @@ async function fetchUsers(): Promise<void> {
     }
 }
 
-/**
- * Renders user cards to the grid
- * @param userList Array of User objects
- */
+// Рендер карток користувачів
 function renderUsers(userList: User[]): void {
-    userGrid.innerHTML = ''; // Clear empty state
+    userGrid.innerHTML = '';
 
     if (userList.length === 0) {
-        userGrid.innerHTML = '<p class="empty-state">No users found.</p>';
+        userGrid.innerHTML = '<p class="empty-state">Користувачів не знайдено.</p>';
         return;
     }
 
     userList.forEach((user, index) => {
         const card = document.createElement('div');
         card.className = 'user-card';
-        card.style.animationDelay = `${index * 0.1}s`; // Staggered animation
+        card.style.animationDelay = `${index * 0.1}s`;
 
-        // Generate initials for avatar
+        // Ініціали для аватарки
         const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2);
 
         card.innerHTML = `
@@ -114,10 +107,7 @@ function renderUsers(userList: User[]): void {
     });
 }
 
-/**
- * Opens the user details modal
- * @param user User object
- */
+// Відкриття модального вікна з деталями
 function openModal(user: User): void {
     modalName.textContent = user.name;
     modalUsername.textContent = `@${user.username}`;
@@ -135,16 +125,13 @@ function openModal(user: User): void {
     modalAvatar.textContent = initials;
 
     modalOverlay.classList.remove('hidden');
-    // Force reflow
     void modalOverlay.offsetWidth;
     modalOverlay.classList.add('active');
 
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden'; // Блокуємо скрол фону
 }
 
-/**
- * Closes the modal
- */
+// Закриття модального вікна
 function closeModal(): void {
     modalOverlay.classList.remove('active');
     setTimeout(() => {
@@ -153,18 +140,18 @@ function closeModal(): void {
     }, 300);
 }
 
-// Event Listeners
+// Обробники подій
 
-// 1. Fetch Data
+// 1. Кнопка завантаження
 loadUsersBtn.addEventListener('click', fetchUsers);
 
-// 2. Modal Close
+// 2. Закриття модалки
 closeModalBtn.addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal();
 });
 
-// 3. Scroll Event (Show/Hide ScrollTop Button)
+// 3. Кнопка "Вгору" при скролі
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
         scrollTopBtn.classList.remove('hidden');
@@ -173,7 +160,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 4. Scroll to Top Action
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -181,4 +167,4 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-console.log('Premium Dashboard Loaded');
+console.log('Script loaded');

@@ -2,8 +2,10 @@
     --bg-color: #0f172a;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-primary: #6366f1; /* Indigo */
-    --accent-secondary: #ec4899; /* Pink */
+    --accent-primary: #6366f1;
+    /* Indigo */
+    --accent-secondary: #ec4899;
+    /* Pink */
     --glass-bg: rgba(30, 41, 59, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --card-hover: rgba(51, 65, 85, 0.8);
@@ -24,7 +26,7 @@ body {
     min-height: 100vh;
 }
 
-/* Background Animation */
+/* Анімація фону */
 .background-orbs {
     position: fixed;
     top: 0;
@@ -61,11 +63,16 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(30px, 50px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, 50px);
+    }
 }
 
-/* Header */
+/* Шапка */
 .glass-header {
     display: flex;
     justify-content: space-between;
@@ -110,7 +117,7 @@ body {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* Main Content */
+/* Основний контент */
 .container {
     padding: 2rem 5%;
     max-width: 1200px;
@@ -140,7 +147,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* Grid System */
+/* Сітка користувачів */
 .user-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -148,7 +155,7 @@ body {
     min-height: 300px;
 }
 
-/* Cards */
+/* Картки */
 .user-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -190,7 +197,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Empty State */
+/* Порожній стан */
 .empty-state {
     grid-column: 1 / -1;
     display: flex;
@@ -210,7 +217,7 @@ body {
     opacity: 0.5;
 }
 
-/* Modal */
+/* Модальне вікно */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -323,7 +330,7 @@ body {
     gap: 0.5rem;
 }
 
-/* Scroll Top Button */
+/* Кнопка вгору */
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -335,7 +342,7 @@ body {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, opacity 0.3s;
     z-index: 90;
 }
@@ -346,13 +353,27 @@ body {
     transform: translateY(20px);
 }
 
-/* Animations */
+/* Анімації */
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
