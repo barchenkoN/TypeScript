@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dashboard for displaying user analytics and data with premium glassmorphism design.">
+    <title>Nexus Dashboard | TypeScript Practical</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles.css">
+    <!-- Шрифт Awesome для іконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="logo">
+            <i class="fa-solid fa-cube"></i> NEXUS
+        </div>
+        <nav>
+            <button id="loadUsersBtn" class="cta-button">
+                <i class="fa-solid fa-cloud-arrow-down"></i> Завантажити дані
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 id="heroTitle">Ласкаво просимо до <span class="gradient-text">Nexus</span></h1>
+            <p>Інтерактивна панель керування користувачами. TypeScript + Modern CSS.</p>
+        </section>
+
+        <section id="userGrid" class="user-grid">
+            <!-- Сюди будуть додаватись картки через JS -->
+            <div class="empty-state">
+                <i class="fa-regular fa-folder-open"></i>
+                <p>Натисніть кнопку зверху, щоб отримати дані</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальне вікно -->
+    <div id="userModal" class="modal-overlay hidden">
+        <div class="modal-content glass-card">
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+            <div class="modal-header">
+                <div class="avatar-large" id="modalAvatar"></div>
+                <h2 id="modalName">User Name</h2>
+                <span class="badge" id="modalUsername">@username</span>
+            </div>
+            <div class="modal-body">
+                <div class="info-row">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span id="modalEmail">email@example.com</span>
+                </div>
+                <div class="info-row">
+                    <i class="fa-solid fa-phone"></i>
+                    <span id="modalPhone">+1 234 567 8900</span>
+                </div>
+                <div class="info-row">
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="#" id="modalWebsite" target="_blank">website.com</a>
+                </div>
+                <div class="info-group">
+                    <h3><i class="fa-solid fa-location-dot"></i> Адреса</h3>
+                    <p id="modalAddress">123 Street, City</p>
+                </div>
+                <div class="info-group">
+                    <h3><i class="fa-solid fa-briefcase"></i> Компанія</h3>
+                    <p id="modalCompany">Company Name</p>
+                    <small id="modalCatchPhrase">Catch phrase here</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка "Вгору" -->
+    <button id="scrollTopBtn" class="scroll-top hidden">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="./dist/main.js"></script>
+</body>
+
+</html>
